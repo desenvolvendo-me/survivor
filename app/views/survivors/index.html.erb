@@ -18,7 +18,7 @@
       <tr>
         <td><%= survivor.name %></td>
         <td><%= survivor.age %></td>
-        <td><%= survivor.city %></td>
+        <td><%= survivor.city&.description_uf %></td>
         <td><%= survivor.gender %></td>
         <td><%= link_to 'Show', survivor %></td>
         <td><%= link_to 'Edit', edit_survivor_path(survivor) %></td>

@@ -5,7 +5,7 @@ RSpec.describe "survivors/new", type: :view do
     assign(:survivor, Survivor.new(
       name: "MyString",
       age: 1,
-      city: "MyString",
+      city: City.create(description: "MyString", uf: "Uf"),
       gender: "MyString"
     ))
   end
@@ -19,7 +19,7 @@ RSpec.describe "survivors/new", type: :view do
 
       assert_select "input[name=?]", "survivor[age]"
 
-      assert_select "input[name=?]", "survivor[city]"
+      assert_select "select[name=?]", "survivor[city_id]"
 
       assert_select "input[name=?]", "survivor[gender]"
     end

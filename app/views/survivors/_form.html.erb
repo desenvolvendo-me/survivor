@@ -6,7 +6,7 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :age %>
-    <%= f.input :city %>
+    <%= f.association :city, collection: City.all.map { |c| [c.description_uf, c.id] } %>
     <%= f.input :gender %>
   </div>
 

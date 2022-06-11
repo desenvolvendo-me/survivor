@@ -5,7 +5,7 @@ RSpec.describe "survivors/show", type: :view do
     @survivor = assign(:survivor, Survivor.create!(
       name: "Name",
       age: 2,
-      city: "City",
+      city: City.create(description: "MyString", uf: "Uf"),
       gender: "Gender"
     ))
   end
