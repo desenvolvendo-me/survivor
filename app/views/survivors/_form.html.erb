@@ -8,6 +8,7 @@
     <%= f.input :age %>
     <%= f.association :city, collection: City.all.map { |c| [c.description_uf, c.id] } %>
     <%= f.input :gender %>
+    <%= f.input :root, as: :boolean %>
   </div>
 
   <div class="form-actions">
