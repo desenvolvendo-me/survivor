@@ -6,7 +6,8 @@ RSpec.describe "survivors/edit", type: :view do
       name: "MyString",
       age: 1,
       city: City.create(description: "MyString", uf: "Uf"),
-      gender: "MyString"
+      gender: "MyString",
+      root: true
     ))
   end
 
@@ -16,12 +17,10 @@ RSpec.describe "survivors/edit", type: :view do
     assert_select "form[action=?][method=?]", survivor_path(@survivor), "post" do
 
       assert_select "input[name=?]", "survivor[name]"
-
       assert_select "input[name=?]", "survivor[age]"
-
       assert_select "select[name=?]", "survivor[city_id]"
-
       assert_select "input[name=?]", "survivor[gender]"
+      assert_select "input[name=?]", "survivor[root]"
     end
   end
 end

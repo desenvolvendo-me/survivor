@@ -6,7 +6,8 @@ RSpec.describe "survivors/show", type: :view do
       name: "Name",
       age: 2,
       city: City.create(description: "MyString", uf: "Uf"),
-      gender: "Gender"
+      gender: "Gender",
+      root: true
     ))
   end
 
@@ -16,5 +17,6 @@ RSpec.describe "survivors/show", type: :view do
     expect(rendered).to match(/2/)
     expect(rendered).to match(/City/)
     expect(rendered).to match(/Gender/)
+    expect(rendered).to match(/Root/)
   end
 end
