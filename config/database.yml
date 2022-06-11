@@ -5,7 +5,7 @@ default: &default
 
 development:
   <<: *default
-  database: survivor_development
+  database: survivors_portal_development
   username: postgres
   password: postgres
   host: localhost
@@ -13,7 +13,7 @@ development:
 
 test:
   <<: *default
-  database: survivor_test
+  database: survivors_portal_test
   username: postgres
   password: postgres
   host: localhost
@@ -21,6 +21,6 @@ test:
 
 production:
   <<: *default
-  database: survivor_production
+  database: survivors_portal_production
   username: postgres
   password: <%= ENV['SURVIVOR_DATABASE_PASSWORD'] %>
