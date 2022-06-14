@@ -2,14 +2,15 @@
 
 <h1>Survivors</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>City</th>
-      <th>Gender</th>
-      <th>Root</th>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">City</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Root</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,14 +18,15 @@
   <tbody>
     <% @survivors.each do |survivor| %>
       <tr>
+        <th scope="row"><%= survivor.id %></th>
         <td><%= survivor.name %></td>
         <td><%= survivor.age %></td>
         <td><%= survivor.city&.description_uf %></td>
         <td><%= survivor.gender %></td>
         <td><%= survivor.root %></td>
-        <td><%= link_to 'Show', survivor %></td>
-        <td><%= link_to 'Edit', edit_survivor_path(survivor) %></td>
-        <td><%= link_to 'Destroy', survivor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', survivor, class: 'btn btn-info' %></td>
+        <td><%= link_to 'Edit', edit_survivor_path(survivor), class: 'btn btn-warning' %></td>
+        <td><%= link_to 'Destroy', survivor, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Survivor', new_survivor_path %>
+<%= link_to 'New Survivor', new_survivor_path, class: 'btn btn-primary' %>
