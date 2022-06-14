@@ -3,7 +3,7 @@ class SurvivorsController < ApplicationController
 
   # GET /survivors or /survivors.json
   def index
-    @survivors = Survivor.all
+    @survivors = current_user.survivors
   end
 
   # GET /survivors/1 or /survivors/1.json
@@ -22,6 +22,7 @@ class SurvivorsController < ApplicationController
   # POST /survivors or /survivors.json
   def create
     @survivor = Survivor.new(survivor_params)
+    @survivor.user = current_user
 
     respond_to do |format|
       if @survivor.save
@@ -60,7 +61,7 @@ class SurvivorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_survivor
-      @survivor = Survivor.find(params[:id])
+      @survivor = current_user.survivors.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
