@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  root to: 'welcome#index'
+
+  get 'welcome/index'
+  resources :survivors
+
+  devise_for :users
+  resources :users, only: [:show, :edit, :update]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :survivors
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
