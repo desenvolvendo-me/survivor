@@ -7,7 +7,7 @@ ActiveAdmin.register Survivor do
     column :age
     column :gender
     column :city_id do |survivor|
-      survivor.city.description_uf
+      survivor.city&.description_uf
     end
     actions
   end
@@ -18,7 +18,7 @@ ActiveAdmin.register Survivor do
       row :age
       row :gender
       row :city_id do |survivor|
-        survivor.city.description_uf
+        survivor.city&.description_uf
       end
     end
     active_admin_comments
@@ -29,7 +29,7 @@ ActiveAdmin.register Survivor do
       f.input :name
       f.input :age
       f.input :gender
-      f.input :city_id, :as => :select, :collection => City.all.collect { |city| [city.description_uf, city.id] }
+      f.input :city_id, :as => :select, :collection => City.all.collect { |city| [city&.description_uf, city.id] }
     end
     f.actions
   end
