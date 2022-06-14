@@ -3,6 +3,9 @@ ActiveAdmin.register Survivor do
 
   index do
     id_column
+    column :user_id do |survivor|
+      link_to survivor.user&.id, admin_user_path(survivor.user&.id)
+    end
     column :name
     column :age
     column :gender
